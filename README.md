@@ -1,60 +1,44 @@
-<p align="center"><a href="https://shen-yu.gitee.io" target="_blank" rel="noopener noreferrer"><img width="100" src="logo.png" alt="ayer logo"></a></p>
+<p align="center"><img width="100" src="logo.png" alt="hero-theme-lvren logo"></p>
 
 <h3 align="center">一个安静且优雅的 Hexo 主题</h3>
 
 <p align="center">
-  <a href="https://travis-ci.org/Shen-Yu/hexo-theme-ayer?branch=master" target="_blank" rel="noopener noreferrer">
-    <img alt="travis-ci" src="https://travis-ci.org/Shen-Yu/hexo-theme-ayer.svg?branch=master">
-  </a>
   <a href="http://standardjs.com" target="_blank" rel="noopener noreferrer">
     <img alt="js-standard-style" src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg">
   </a>
-  <a href="https://gitter.im/hexo-theme-ayer/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge" target="_blank" rel="noopener noreferrer">
-    <img alt="Gitter" src="https://badges.gitter.im/Join%20Chat.svg">
-  </a>
-  <br>
-  <a href="https://github.com/Shen-Yu/hexo-theme-ayer/releases" target="_blank" rel="noopener noreferrer">
-    <img alt="GitHub release" src="https://img.shields.io/badge/release-v2.0-blue.svg">
-  </a> 
- <img alt="language" src="https://img.shields.io/badge/language-ejs--stylus-orange.svg">
+  <img alt="language" src="https://img.shields.io/badge/language-ejs--stylus-orange.svg">
   <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener noreferrer">
     <img alt="hexo" src="https://img.shields.io/badge/hexo-%3E%3D3.0-blue.svg">
   </a>
- <img alt="platform" src="https://img.shields.io/badge/platform-PC--ios--android-cc2e8b.svg">
+  <img alt="platform" src="https://img.shields.io/badge/platform-PC--ios--android-cc2e8b.svg">
 </p>
 
 ---
 
-:ocean: Ayer is a clean and elegant theme for Hexo, also fast, powerful and responsive. It contains many awesome features, It's perfect for your blog, "Ayer" means "water" in Malaysian and "yesterday" in Spanish. If you have any queries or advice during the process of using, Please contact me!  shenyu@hotmail.com
+:ocean: hero-theme-lvren is a clean and elegant theme for Hexo, also fast, powerful and responsive. It contains many awesome features, It's perfect for your blog.
 
 <b>注：收藏本主题请点右上角Star，谢谢~</b>
-
-### [Preview 预览](https://shen-yu.gitee.io)
-
-### [中文说明](https://shen-yu.gitee.io/2019/ayer/)
-
-### [国内镜像](https://gitee.com/shen-yu/hexo-theme-ayer)
 
 ![Screenshot](screenshots/hexo-theme-ayer.png)
 
 ### Install
 
 ``` bash
-$ git clone https://github.com/Shen-Yu/hexo-theme-ayer.git themes/ayer
+$ git clone https://github.com/jiaqiany/hero-theme-lvren.git themes/hero-theme-lvren
 ```
 
 ### Enable
 
-Modify `theme` setting in `_config.yml` to `ayer`
+Modify `theme` setting in `_config.yml` to `hero-theme-lvren`
 
 ``` yml
-theme: ayer
+theme: hero-theme-lvren
 ```
 
 ### Update
 
 ``` bash
-cd themes/ayer
+cd themes/hero-theme-lvren
 git pull
 ```
 
@@ -69,7 +53,7 @@ menu:
   Archives: /archives
   Categories: /categories
   Tags: /tags
-  Gallery: http://shenyu-vip.lofter.com
+  Gallery: /gallery
   Travel: /tags/旅行/
   About: /2019/about
 
@@ -94,7 +78,7 @@ logo: /images/ayer-side.svg
 # enable: [true|false]；path: [background-image]；logo: [cover-logo-image]
 cover:
   enable: true
-  path: /images/cover1.jpg  # there are some beautiful cover images in Ayer's directory: /source/images, choose your favorite image to replace it.
+  path: /images/cover1.jpg  # there are some beautiful cover images in the theme's directory: /source/images, choose your favorite image to replace it.
   logo: /images/ayer.svg
 
 # ProgressBar  
@@ -191,7 +175,7 @@ gitalk:
 # GitHub Ribbons(https://github.blog/2008-12-19-github-ribbons/)
 github: 
   # (Set false if you don't need)
-  url: https://github.com/Shen-Yu/hexo-theme-ayer
+  url: https://github.com/jiaqiany/hero-theme-lvren
 
 # pv&uv statistics
 busuanzi:
@@ -300,13 +284,13 @@ albums: [
 
 Use Tocbot to parse the title tags (h1~h6) in the content and insert the directory. 
 
-+ ayer/_config.yml
++ hero-theme-lvren/_config.yml
 
 	``` bash
 	# Toc
   toc: true
 	```
-+ If Toc is turned on in ayer/_config.yml, then Tocbot will generate a Toc article directory in the title tag of each blog parsing content, but not all blogs require Toc, so in the Front-matter section of markdown Can be closed:
++ If Toc is turned on in hero-theme-lvren/_config.yml, then Tocbot will generate a Toc article directory in the title tag of each blog parsing content, but not all blogs require Toc, so in the Front-matter section of markdown Can be closed:
 
 	``` md
 	---
@@ -317,4 +301,4 @@ Use Tocbot to parse the title tags (h1~h6) in the content and insert the directo
 ---
 
 <br/>
-<a src="https://github.com/Shen-Yu/hexo-theme-ayer">Ayer</a> by <a  href="https://github.com/Shen-Yu">Eric-Shen</a> is licensed under  <a rel="license" href="https://www.mit-license.org/">MIT</a>.
+Licensed under <a rel="license" href="https://www.mit-license.org/">MIT</a>.
