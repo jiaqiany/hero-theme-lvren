@@ -139,6 +139,15 @@ rss: /atom.xml
 
 # DarkMode
 darkmode: true
+# Auto switch day/night by user's local system time
+# Day (default white UI): outside night hours
+# Night (pure black + white text): within night hours
+# Manual toggle still works and remembers choice for the current session
+darkmode_auto:
+  enable: true
+  night_start: 18   # 18:00 start night mode
+  night_end: 6      # 06:00 end night mode
+
 
 # ClickLove
 clickLove: false

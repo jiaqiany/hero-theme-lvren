@@ -37,6 +37,50 @@
   <% if (theme.progressBar){ %>
   <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
   <% } %>
+  <% if (theme.darkmode){ %>
+  <%
+    var darkAuto = true;
+    var nightStart = 18;
+    var nightEnd = 6;
+    if (theme.darkmode_auto === false) {
+      darkAuto = false;
+    } else if (theme.darkmode_auto && typeof theme.darkmode_auto === 'object') {
+      if (theme.darkmode_auto.enable === false) darkAuto = false;
+      if (typeof theme.darkmode_auto.night_start === 'number') nightStart = theme.darkmode_auto.night_start;
+      if (typeof theme.darkmode_auto.night_end === 'number') nightEnd = theme.darkmode_auto.night_end;
+    }
+  %>
+  <script>
+    window.AYER_DARKMODE = {
+      auto: <%= darkAuto %>,
+      nightStart: <%= nightStart %>,
+      nightEnd: <%= nightEnd %>
+    };
+    (function () {
+      var cfg = window.AYER_DARKMODE;
+      var saved = null;
+      try { saved = sessionStorage.getItem('darkmode'); } catch (e) {}
+      function isNight() {
+        var h = new Date().getHours();
+        var start = cfg.nightStart;
+        var end = cfg.nightEnd;
+        if (start === end) return true;
+        if (start > end) return h >= start || h < end;
+        return h >= start && h < end;
+      }
+      var dark = saved === '1' || (saved !== '0' && cfg.auto && isNight());
+      if (dark) {
+        document.documentElement.classList.add('darkmode');
+        document.addEventListener('DOMContentLoaded', function () {
+          document.body.classList.add('darkmode');
+        });
+      }
+    })();
+  </script>
+  <style>
+    html.darkmode, html.darkmode body { background: #000; color: #fff; }
+  </style>
+  <% } %>
   <%- partial('google-analytics') %>
   <%- partial('baidu-analytics') %>
 </head>

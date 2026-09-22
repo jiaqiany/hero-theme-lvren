@@ -29,22 +29,43 @@ body
   margin 0
   overflow-x hidden
   text-size-adjust: 100%
+  // Night mode: pure black background + white text
   &.darkmode
-    background: rgba(0,0,0,.6)
+    background: #000
+    color: #fff
     *
-      color: darken(#fff,10%)
+      color: #fff
+    a
+      color: #fff
+      &:hover
+        color: #ddd
     .article-entry code
-      background: darken(#ddd,10%) !important
-      color: #c7254e !important
+      background: #1a1a1a !important
+      color: #fff !important
+    .article-entry pre
+    .article-entry .highlight
+      background: #111 !important
     .article-header .article-title,.share-outer i,.category-list .category-list-item i,.category-list a:hover .category-list-item,.article-date, .article-category .article-category-link, .archive-year-wrap .archive-year, .archive-article-date,a.toc-link,.tag-list > .tag-list-item:before,.article-tag-list:before
-      color: darken(#fff,10%) !important
+      color: #fff !important
     .share-icons a i,.float_btns i,#reward .reward-p,#reward .reward-p i,.local-search-input
-      color: darken(#999,20%) !important
+      color: #fff !important
+    .totop,.todark
+      background-color: #222
+      color: #fff
+    .local-search-input
+      background: #111 !important
+      border-color: #333 !important
+    #reward
+      background: #111
     .v *
-      color: #555 !important
+      color: #fff !important
     .tag-list > .tag-list-item .tag-list-link,.article-tag-list .article-tag-list-link
-      background: darken(#fff,10%) !important
-      color: #555 !important
+      background: #fff !important
+      color: #000 !important
+    .sidebar
+      background-color: #000
+    .content
+      background: #000
 
 a
   color link-color

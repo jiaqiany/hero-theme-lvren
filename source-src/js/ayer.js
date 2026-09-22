@@ -131,24 +131,53 @@
     $('#reward').fadeOut(100)
   })
 
-  // DarkMode
-  if (sessionStorage.getItem('darkmode') == 1) {
-    $('body').addClass('darkmode')
-    $('#todark i').removeClass('ri-moon-line').addClass('ri-sun-line')
-  } else {
-    $('body').removeClass('darkmode')
-    $('#todark i').removeClass('ri-sun-line').addClass('ri-moon-line')
-  }
-  $('#todark').click(() => {
-    if (sessionStorage.getItem('darkmode') == 1) {
-      $('body').removeClass('darkmode')
-      $('#todark i').removeClass('ri-sun-line').addClass('ri-moon-line')
-      sessionStorage.removeItem('darkmode')
-    } else {
-      $('body').addClass('darkmode')
-      $('#todark i').removeClass('ri-moon-line').addClass('ri-sun-line')
-      sessionStorage.setItem('darkmode', 1)
+  // DarkMode: auto by system local time, with manual toggle override
+  const darkModeCfg = window.AYER_DARKMODE || {}
+  const nightStart = typeof darkModeCfg.nightStart === 'number' ? darkModeCfg.nightStart : 18
+  const nightEnd = typeof darkModeCfg.nightEnd === 'number' ? darkModeCfg.nightEnd : 6
+  const autoDarkMode = darkModeCfg.auto !== false
+
+  const isNightBySystemTime = () => {
+    const hour = new Date().getHours()
+    if (nightStart === nightEnd) return true
+    if (nightStart > nightEnd) {
+      return hour >= nightStart || hour < nightEnd
     }
+    return hour >= nightStart && hour < nightEnd
+  }
+
+  const applyDarkMode = (isDark) => {
+    if (isDark) {
+      $('html, body').addClass('darkmode')
+      $('#todark i').removeClass('ri-moon-line').addClass('ri-sun-line')
+    } else {
+      $('html, body').removeClass('darkmode')
+      $('#todark i').removeClass('ri-sun-line').addClass('ri-moon-line')
+    }
+  }
+
+  const resolveDarkMode = () => {
+    const saved = sessionStorage.getItem('darkmode')
+    if (saved === '1') return true
+    if (saved === '0') return false
+    return autoDarkMode ? isNightBySystemTime() : false
+  }
+
+  applyDarkMode(resolveDarkMode())
+
+  // Re-check when the page stays open across day/night boundary
+  if (autoDarkMode) {
+    setInterval(() => {
+      if (sessionStorage.getItem('darkmode') === null) {
+        applyDarkMode(isNightBySystemTime())
+      }
+    }, 60 * 1000)
+  }
+
+  $('#todark').click(() => {
+    const nextDark = !$('body').hasClass('darkmode')
+    applyDarkMode(nextDark)
+    sessionStorage.setItem('darkmode', nextDark ? '1' : '0')
   })
 
   // showThemeInConsole
